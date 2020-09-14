@@ -13,7 +13,7 @@ var pokemonRepository =(function($) {
   function addListItem(pokemon){
     var $unorderedList = $(".pokemonsList");
     var $listItem = $("<li></li>");
-    var $button = $("<button class='btn'></button>");
+    var $button = $('<button type="button" class="btn btn-primary button" data-toggle="modal" data-target="#exampleModal"></button>');
     $button.text(pokemon.name);
     $listItem.append($button);
     $unorderedList.append($listItem);
@@ -40,7 +40,6 @@ var pokemonRepository =(function($) {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      // console.log(pokemon);
       showModal(pokemon);
     });
   }
@@ -57,25 +56,49 @@ var pokemonRepository =(function($) {
   });
   }
 
-  function showModal(pokemon){
-    var $modalContainer = $("#modalContainer");
-    var $closeModalButton = $("<button>CLOSE</button>");
-    var $unorderedList = $(".pokemonsList");
-    var $profileImage = pokemon.imageUrl;
-    var $profileName = pokemon.name;
-    var $profileHeight = pokemon.height;
-    var $profileWeight = pokemon.weight;
-    var $profileType = pokemon.type;
-    $modalContainer.removeClass("modalContainer__isHidden");
-    $modalContainer.addClass("modalContainer__isVisible");
-    $unorderedList.css("filter", "blur(5px)");
-    var $profile = $('<div><img src="' + $profileImage + '" alt="' + 
-                          $profileName +'"><div><h1>name: <span>'+ 
-                          $profileName +'</span></h1><h2>height: <span>'+ $profileHeight +' M.</span></h2><h3>weight: <span>'+ $profileWeight +' KG.</span></h3><h4>type: <span>'+ $profileType +'</span></h4></div>');
-    
-    $modalContainer.append($profile);
-    $modalContainer.append($closeModalButton);                 
-    $closeModalButton.click(hideModal);                                 
+  function showModal(pokemon){   
+    var $modalBody = $(".modal-body");
+    var $modalTitle = $(".modal-title");
+    var $modalHeader = $(".modal-header");
+    var $pokeNames = $("<h1>" + pokemon.name + "</h1>");
+    var $pokenamesImg = $('<img clas="modal-img" style="width:50%">');
+    $pokenamesImg.attr("src", pokemon.imageUrl);
+    var $pokeHeight = $("<p>" + "height : " + pokemon.height + " M." + "</p>");
+    var $pokeWeight = $("<p>" + "weight : " + pokemon.weight + " Kg." + "</p>");
+    var $pokeTypes = $("<p>" + "type : " + pokemon.type + "</p>");
+    $modalBody.empty();
+    $modalTitle.empty();
+    $modalTitle.append($pokeNames.css({
+                                        "text-transform":"capitalize", 
+                                        "background-color": "#10013A",
+                                        "color": "#FFCB05",
+                                        "padding": "10px 20px 10px 10px"
+                                      }));
+    $modalBody.append($pokenamesImg.css({
+                                        "border": "3px solid rgba(100,80,2,0.8)",
+                                        "border-radius": "8px",
+                                        "margin-bottom": "10px",
+                                        "text-align": "center",
+                                        "background-color": "rgba(100,80,2,0.3)"
+                                      }));
+    $modalBody.append($pokeHeight.css({
+                                        "text-transform":"capitalize", 
+                                        "background-color": "#10013A",
+                                        "color": "#FFCB05",
+                                        "padding": "10px"
+                                      }));
+    $modalBody.append($pokeWeight.css({
+                                        "text-transform":"capitalize", 
+                                        "background-color": "#10013A",
+                                        "color": "#FFCB05",
+                                        "padding": "10px"
+                                      }));
+    $modalBody.append($pokeTypes.css({
+                                        "text-transform":"capitalize", 
+                                        "background-color": "#10013A",
+                                        "color": "#FFCB05",
+                                        "padding": "10px"
+                                      }));
   }
 
   function hideModal(event){
@@ -96,7 +119,6 @@ var pokemonRepository =(function($) {
       $modalContainer.html("");
     } 
     $unorderedList.css("filter", "none");
-    // unorderedList.style.filter = "none";
   })
 
   $(window).click(function(event){

@@ -1,185 +1,22 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: rgb(196, 237, 245);
 }
 
-#logo{
-  display: flex;
-  width: 100%;
-  height: 200px;
-  justify-content: center;
+.navbar{
+  background: rgba(16, 1, 58, 0.1)!important;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
-#logo img{
-  width: 500px;
-  height: 184px;
-  background: rgb(196, 237, 245);
-  position: fixed;
-  z-index: 2;
-}
-
-#firstLine{
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  /* background: white; */
-}
-
-#firstLine img{
-  width: 200px;
-  height: 200px;
-}
-
-ul{
-list-style-type: none;
-}
-
-.btn{
+.button{
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
   width: 200px;
   padding: 20px 0;
-  margin: 20px;
-  border: none;
+  margin: 40px;
   border-radius: 8px;
   background: rgb(16, 1, 58);
   color: #FFCB05;
-  cursor: pointer;
-  position: relative;
 }
 
-/* .btn::after{
-  content: url("https://i.imgur.com/rwBjNpc.png");
-  display: none;
-  background: white;
-  position: absolute;
-  top: 0;
-  left: 210px;
-  cursor: default;
-} */
-
-.btn:hover{
-  background: #3564AD;
-}
-
-.btn:focus{
-  outline-style: solid;
-  outline-color: rgba(21, 3, 63, 0.98);
-  outline-width: 6px;
-  outline-offset: 3px;
-  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-  /* background: rgba(6, 14, 0, 0.98); */
-  background: #234375;
-  color: #f5d091;
-}
-
-/* .btn:focus::after{
-  display: inline-block;
-} */
-
-#modalContainer{
-  /* display: flex; */
-  width: 70vw;
-  min-width: 310px;
-  height: 70vh;
-  min-height: 250px;
-  background: rgba(37, 3, 131, 0.98);
-  border: 3px solid rgba(110, 21, 253, 0.6);
-  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
-  position: fixed;
-  z-index: 99;
-  top: 184px;
-  animation: modalShow 1s linear 1ms ;
-}
-
-@keyframes modalShow{
-  0%{background: rgba(37, 3, 131, 0.2); transform: scale(0.15) ; }
-  100%{background: rgba(37, 3, 131, 0.98);}
-}
-
-
-#modalContainer button{
-  position: absolute;
-  font-weight: bold;
-  right: 4px;
-  top: 4px;
-  padding: 7px 10px;
-  cursor: pointer;
-}
-
-.modalContainer__isVisible{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalContainer__isHidden{
-  display: none;
-}
-
-#modalContainer div{
-  display: flex;
-  flex-direction: row;
-  color: rgb(230, 191, 18);
-  text-transform: uppercase;
-  pointer-events: none;
-}
-
-#modalContainer div span{
-  color: white;
-  margin-left: 5px;
-}
-
-#modalContainer div div{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-#modalContainer img{
-  width: 150px;
-  height: 150px;
-  background: rgba(130, 101, 209, 0.38);
-  border: 3px solid rgb(214, 203, 203);
-  border-radius: 4px;
-  margin-right: 5px;
-}
-
-@media only screen and (max-width: 550px) {
-  h1, h2, h3, h4{
-    font-size: 14px;
-  }
-
-  #logo{
-    height: 130px;
-  }
-
-  #logo img{
-    width: 350px;
-    height: 128px;
-  }
-
-  #firstLine img{
-    width: 140px;
-    height: 140px;
-  }
-
-  #modalContainer{
-    top: 128px;
-  }
-}
-
-@media only screen and (max-width: 800px) and (min-width:550px){
-  h1, h2, h3, h4{
-    font-size: 18px;
-  }
-}
