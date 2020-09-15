@@ -3,7 +3,8 @@ body{
 }
 
 .navbar{
-  background: rgba(16, 1, 58, 0.1)!important;
+  /* background: rgba(16, 1, 58, 0.1)!important; */
+  background: #B9ECF3!important;
   font-size: 1.2rem;
   font-weight: 500;
 }

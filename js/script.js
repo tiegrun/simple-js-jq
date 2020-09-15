@@ -56,7 +56,8 @@ var pokemonRepository =(function($) {
   });
   }
 
-  function showModal(pokemon){   
+  function showModal(pokemon){ 
+    var $modalContent = $(".modal-content");  
     var $modalBody = $(".modal-body");
     var $modalTitle = $(".modal-title");
     var $modalHeader = $(".modal-header");
@@ -68,6 +69,10 @@ var pokemonRepository =(function($) {
     var $pokeTypes = $("<p>" + "type : " + pokemon.type + "</p>");
     $modalBody.empty();
     $modalTitle.empty();
+    $modalContent.css({
+                      "background-color": "#B9ECF3",
+                      "text-align": "center"
+                    })
     $modalTitle.append($pokeNames.css({
                                         "text-transform":"capitalize", 
                                         "background-color": "#10013A",
