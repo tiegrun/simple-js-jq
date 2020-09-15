@@ -72,7 +72,7 @@ var pokemonRepository =(function($) {
     $modalContent.css({
                       "background-color": "#B9ECF3",
                       "text-align": "center"
-                    })
+                    });
     $modalTitle.append($pokeNames.css({
                                         "text-transform":"capitalize", 
                                         "background-color": "#10013A",
